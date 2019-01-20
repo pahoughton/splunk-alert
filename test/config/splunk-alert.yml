@@ -14,12 +14,10 @@ global:
     extra: stuff
 
 alertmanagers:
-  - scheme: https
+  - scheme: http
     static-configs:
       targets:
-        - "1.2.3.4:9093"
-        - "1.2.3.5:9093"
-        - "1.2.3.6:9093"
+        - "localhost:9093"
 
 alerts:
   - name: log-riak-http-access

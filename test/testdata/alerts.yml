@@ -1,0 +1,25 @@
+# 2019-01-19 (cc) <paul4hough@gmail.com>
+#
+---
+alerts:
+  - name: log-riak-http-error
+    splunk:
+      result:
+        sourcetype: mongod
+        count: 5
+      sid: alert-riak-http-error-search_at_14232356_132
+      results_link: http://splunk:8000/app/search/@go?sid=alert-riak-http-error-search_at_14232356_132
+      search_name: riak-http-error
+      owner: monitor
+      app: search
+
+  - name: log-riak-http-access
+    splunk:
+      result:
+        sourcetype: mongod
+        count: 2
+      sid: alert-riak-http-access-search_at_14232356_321
+      results_link: http://splunk:8000/app/search/@go?sid=alert-riak-http-access-search_at_14232356_321
+      search_name: riak-http-access
+      owner: monitor
+      app: search

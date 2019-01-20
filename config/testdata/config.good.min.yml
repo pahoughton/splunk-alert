@@ -1,0 +1,11 @@
+# 2019-01-19 (cc) <paul4hough@gmail.com>
+#
+---
+global:
+  listen-addr: ":9321"
+
+alertmanagers:
+  - scheme: https
+    static-configs:
+      targets:
+        - "1.2.3.4:9093"

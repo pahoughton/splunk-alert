@@ -2,41 +2,44 @@
 
 [![Test Build Status](https://travis-ci.org/pahoughton/splunk-alert.png)](https://travis-ci.org/pahoughton/splunk-alert)
 
-send alerts to alertmanager from splunk alerts and/or api searches
+send alerts to alertmanager from splunk alerts
 
-## Features
+planned: send alerts from splunk search results
 
-```yaml
----
-global:
-  listen_addr: ":9321"
-  search_freq: 15m
-  splunk_url: "http://splunk:8089/"
-  splunk_user: "me"
-  splunk_pass: "pass"
+## features
 
+Forward alerts received via splunk webhook to prometheus alert
+manager. Alert labels and annotations can be added to the alert via
+global and per alert configuration. The alertname is derived from the
+last component of the webhook url, i.e. the webhook url
+http://host:9321/splunk/log-http-access will create an alert with the
+name 'log-http-access'.
 
-searchs:
-  - name: splunk_openam_error
-    search: "services/saved/searches/openam_errors"
-    annotations:
-      sop: http://wiki/sop-splunk-openam
-```
+### configuration
 
-## Install
+See [config.good.full.yml](../master/config/testdata/config.good.full.yml)
 
-Can't
+## install
 
-## Usage
+Can't (yet)
 
-run service
+## usage
 
-## Contribute
+Run as a service on host.
+
+Create a splunk alert with a webhook trigger. The last component of
+the url will be the alertmanager alertname:
+http://host:port/splunk/splunk-myservie-errors will create an alert
+named splunk-myservice-errors
+
+## contribute
 
 https://github.com/pahoughton/splunk-alert
 
-## Licenses
+## licenses
 
 2019-01-16 (cc) <paul4hough@gmail.com>
 
-[![LICENSE](http://i.creativecommons.org/l/by/4.0/80x15.png)](http://creativecommons.org/licenses/by/4.0/)
+GNU General Public License v3.0
+
+See [COPYING](../master/COPYING) for full text.
